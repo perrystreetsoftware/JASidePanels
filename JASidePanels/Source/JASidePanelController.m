@@ -296,7 +296,8 @@ static char ja_kvoContext;
 }
 
 - (void)stylePanel:(UIView *)panel {
-    panel.layer.cornerRadius = 6.0f;
+// es removed corner radius
+//    panel.layer.cornerRadius = 6.0f;
     panel.clipsToBounds = YES;
 }
 
