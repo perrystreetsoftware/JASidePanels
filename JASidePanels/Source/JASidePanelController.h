@@ -36,6 +36,10 @@ typedef enum _JASidePanelState {
     JASidePanelRightVisible
 } JASidePanelState;
 
+@protocol JAPanelDelegate <NSObject>
+- (void)leftPanelHidden;
+@end
+
 @interface JASidePanelController : UIViewController<UIGestureRecognizerDelegate>
 
 #pragma mark - Usage
@@ -167,5 +171,8 @@ typedef enum _JASidePanelState {
 @property (nonatomic, strong, readonly) UIView *leftPanelContainer;
 @property (nonatomic, strong, readonly) UIView *rightPanelContainer;
 @property (nonatomic, strong, readonly) UIView *centerPanelContainer;
+
+// Delegates
+@property (nonatomic, weak) id<JAPanelDelegate> animationDelegate;
 
 @end

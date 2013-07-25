@@ -31,6 +31,7 @@ static char ja_kvoContext;
 @interface JASidePanelController() {
     CGRect _centerPanelRestingFrame;		
     CGPoint _locationBeforePan;
+    __weak id <JAPanelDelegate> _animationDelegate;
 }
 
 @property (nonatomic, readwrite) JASidePanelState state;
@@ -80,6 +81,7 @@ static char ja_kvoContext;
 @synthesize allowLeftSwipe = _allowLeftSwipe;
 @synthesize allowRightSwipe = _allowRightSwipe;
 @synthesize pushesSidePanels = _pushesSidePanels;
+@synthesize animationDelegate = _animationDelegate;
 
 #pragma mark - Icon
 
@@ -888,6 +890,9 @@ static char ja_kvoContext;
     
     self.tapView = nil;
     [self _toggleScrollsToTopForCenter:YES left:NO right:NO];
+
+    // es added
+    [self.animationDelegate leftPanelHidden];
 }
 
 - (void)_hideCenterPanel {
